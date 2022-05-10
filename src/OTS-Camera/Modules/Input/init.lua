@@ -14,6 +14,9 @@ local GenerateCameraSettingsActions = require(script.Actions.CameraSettings)
 
 --// VARIABLES //--
 
+local GAMEPAD_DEAD	= 0.15
+local x, y = 0, 0
+
 --// INITIALIZER //--
 
 function Input:Initialize()
@@ -55,6 +58,7 @@ end
 
 function Input:UpdateAngles()
 	local inputDelta = self:CaptureInput()
+	print(inputDelta)
 	local currentCamera = workspace.CurrentCamera
 
 	self.HorizontalAngle -= inputDelta.X / currentCamera.ViewportSize.X
@@ -69,7 +73,9 @@ function Input:UpdateAngles()
 end
 
 function Input:CaptureInput()
-	if UserInputService.TouchEnabled then
+	if UserInputService.GamepadEnabled then
+		return Vector2.new(x, y)
+	elseif UserInputService.TouchEnabled then
 		return self.TouchControls:GetDelta() * self.ActiveCameraSettings.TouchSensitivity
 	else
 		return UserInputService:GetMouseDelta() * self.ActiveCameraSettings.MouseSensitivity
@@ -192,5 +198,22 @@ function Input:DisableMobileButton(actionName)
 
 	self.MobileButtonDisabled:Fire(actionName)
 end
+
+local X_SPEED, Y_SPEED = 100, 15
+local MIN_Y, MAX_Y	= -1.4, 1.4
+UserInputService.InputChanged:Connect(function(inputObject, processed)
+	if not processed then
+		if inputObject.KeyCode == Enum.KeyCode.Thumbstick2 then
+			local input	= inputObject.Position
+			if input.Magnitude > GAMEPAD_DEAD then
+				x	= (input.X * X_SPEED)
+				y	= -(input.Y * Y_SPEED)
+			else
+				x = 0
+				y = 0
+			end
+		end
+	end
+end)
 
 return Input
