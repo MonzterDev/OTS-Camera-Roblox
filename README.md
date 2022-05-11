@@ -27,4 +27,4 @@ OTS_Camera.Enable()
 3. You may need to change `require(PlayerScripts:WaitForChild("OTS-Camera"))` to point to wherever you put the Module
 
 ## Credit
-https://devforum.roblox.com/t/over-the-shoulder-camera-system/728481/121?u=m_nzter
+https://github.com/Hasnain123Raza/ROBLOX-OTS-Camera-System/
