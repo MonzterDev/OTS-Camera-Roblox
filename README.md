@@ -1,5 +1,12 @@
 # OTS-Camera-Roblox
 
+## Info
+Easily add an Over the Shoulder perspective to your Game which works with Computer, Mobile, & Console!
+
+Fortnite is an excellent example of what an Over the Shoulder perspective is.
+
+![Over the Shoulder perspective in-game](./images/Showcase.png)
+
 ## Installing to Roblox
 Repo contains all source files, which are imported to Roblox using Rojo.
 
@@ -15,7 +22,7 @@ local Player = Players.LocalPlayer
 local PlayerScripts = Player.PlayerScripts
 
 local OTS_Camera = require(PlayerScripts:WaitForChild("OTS-Camera"))
-OTS_Camera:Enable()
+OTS_Camera.Enable()
 ```
 3. You may need to change `require(PlayerScripts:WaitForChild("OTS-Camera"))` to point to wherever you put the Module
 
