@@ -1,6 +1,5 @@
 # OTS-Camera-Roblox
 
-## Info
 Easily add an Over the Shoulder perspective to your Game which works with Computer, Mobile, & Console!
 
 Fortnite is an excellent example of what an Over the Shoulder perspective is.
