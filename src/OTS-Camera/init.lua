@@ -137,6 +137,7 @@ local function configureStateForEnabled()
 end
 
 local function configureStateForDisabled()
+	OTS_Cam.SetCharacterAlignment(false)
 	loadDefaultCamera()
 	UserInputService.MouseBehavior = SavedMouseBehavior
 	OTS_Cam.HorizontalAngle = 0
