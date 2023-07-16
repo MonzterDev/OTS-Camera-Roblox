@@ -204,7 +204,7 @@ local function updateCamera()
 		----
 
 		--// Address character alignment //--
-		if OTS_Cam.IsCharacterAligned == true then
+		if activeCameraSettings.Align_Character == true then
 			local newHumanoidRootPartCFrame = CFrame.new(humanoidRootPart.Position) *
 				CFrame.Angles(0, OTS_Cam.HorizontalAngle, 0)
 			humanoidRootPart.CFrame = humanoidRootPart.CFrame:Lerp(newHumanoidRootPartCFrame, activeCameraSettings.Lerp_Speed/2)
